@@ -8,13 +8,19 @@ import { ApiService } from './services/api.service';
 export class AppComponent {
   constructor(private api:ApiService){}
   num:any = '';
-  word:string = '';
+  word:any = '';
   list:any = [];
   getNum(){
-    this.num = 10;
+    this.api.getNumber().subscribe((res)=>
+    {
+      this.num = res;
+    }
+    )
   }
   getWord(){
-    this.word = 'hello';
+    this.api.getWord().subscribe((res)=>{
+      this.word = res;
+    })
   }
   getList(){
     this.list[0] = 'ye west';
