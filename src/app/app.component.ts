@@ -23,8 +23,9 @@ export class AppComponent {
     })
   }
   getList(){
-    this.list[0] = 'ye west';
-    this.list[1] = 'yo';
+    this.api.getList().subscribe((res)=>{
+      this.list = res;
+    })
   }
   
 }
